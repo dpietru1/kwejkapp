@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset=" UTF-8">
+<title>Title</title>
+</head>
+<body>
+    <p th:text="hello"></p>
+    <div th:fragments="all">
+
+        <table>
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>descrption</th>
+
+            </tr>
+            <tr th:each="article : ${articles}">
+                <td>
+                    <a th:href="@{/article/{id}(id=${article.id})}" th:text="${article.id}"/>
+                </td>
+                <td th:text="${article.title}">First name</td>
+                <td th:text="${article.description}">Last name</td>
+
+            </tr>
+</body>
+</html>

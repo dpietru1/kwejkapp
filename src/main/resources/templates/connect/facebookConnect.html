@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" th:href="@{/favicon.png}" />
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" th:href="@{/app.css}" />
+    <title>Hello Facebook</title>
+</head>
+<body>
+<h3>Connect to Facebook</h3>
+<form action="/connect/facebook" method="POST">
+    <input type="hidden" name="scope" value="user_posts" />
+    <div class="formInfo">
+        <p>You aren't connected to Facebook yet. Click the button to connect this application with your Facebook account.</p>
+    </div>
+    <p><button type="submit">Connect to Facebook</button></p>
+</form>
+</body>
+</html>
