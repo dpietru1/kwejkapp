@@ -42,7 +42,15 @@
         </div>
     </div>
     <div class="gifs container">
-        <div th:replace="fragments/gifRefactor :: gifRefactor">
+        <div class="row">
+            <h3 th:if="${gifs.isEmpty()}">Nie znaleziono memów</h3>
+            <div th:each="gif : ${gifs}" class="col s12 l4">
+                <a th:href="@{|/gif/${gif.name}|}">
+                    <img th:src="@{|/gifs/${gif.name}.gif|}" />
+                    <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
+                </a>
+            </div>
+        </div>
     </div>
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>

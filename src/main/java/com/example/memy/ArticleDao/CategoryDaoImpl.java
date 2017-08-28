@@ -18,6 +18,7 @@ public class CategoryDaoImpl {
         categoryList.add(new Category(1L,"Painted"));
         categoryList.add(new Category(2L,"Realistic"));
         categoryList.add(new Category(3L, "Amazing"));
+        categoryList.add(new Category(4L, "Computers"));
     }
 
     public List<Category> findAll(){
@@ -29,8 +30,10 @@ public class CategoryDaoImpl {
             return categoryList.get(0);
         }else if (id==2L){
             return categoryList.get(1);
-        }else
+        }else if (id==3L){
             return categoryList.get(2);
+        }else
+            return categoryList.get(3);
     }
 
     public Category findByName(String name) {

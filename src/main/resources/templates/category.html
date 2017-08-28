@@ -34,7 +34,7 @@
         <div class="col s12">
             <form action="/category/search" method="get">
                 <div class="input-field">
-                    <input name="q" type="search" placeholder="Search all gifs..." required="required"
+                    <input name="q" type="search" placeholder="Search gifs in category..." required="required"
                            autocomplete="off"/>
                     <i class="material-icons">search</i>
                 </div>
@@ -46,6 +46,7 @@
     <div class="chip" th:text="${category.name}">category name</div>
     <div th:replace="fragments/gifRefactor :: gifRefactor">
     </div>
+</div>
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
 <script th:src="@{/app.js}"></script>

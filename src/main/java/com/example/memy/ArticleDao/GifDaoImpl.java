@@ -20,6 +20,8 @@ public class GifDaoImpl implements GifDao {
         gifList.add(new Gif("compiler-bot", true,"iwjeoij", categoryDao.findAll().get(1)));
         gifList.add(new Gif("cowboy-coder", false,"j cljjnadl", categoryDao.findAll().get(2)));
         gifList.add(new Gif("infinite-andrew", false,"pqoowejj", categoryDao.findAll().get(2)));
+        gifList.add(new Gif("giphy-downsized", true,"pqooweasd", categoryDao.findAll().get(3)));
+        gifList.add(new Gif("computers2", true,"pqooweasd", categoryDao.findAll().get(3)));
     }
 
     public List<Gif> allGifs() {
@@ -34,6 +36,8 @@ public class GifDaoImpl implements GifDao {
             result=gifsInCategory(categoryDao.findAll().get(1).getId());
         else if (categoryDao.findAll().get(2).getName().equals(name))
             result=gifsInCategory(categoryDao.findAll().get(2).getId());
+        else if (categoryDao.findAll().get(3).getName().equals(name))
+            result=gifsInCategory(categoryDao.findAll().get(3).getId());
         return result;
     }
 
@@ -41,6 +45,7 @@ public class GifDaoImpl implements GifDao {
         List<Gif> gifListInPainted=new ArrayList<>();
         List<Gif> gifListInRealistic=new ArrayList<>();
         List<Gif> gifListInAmazing=new ArrayList<>();
+        List<Gif> gifListInComputers=new ArrayList<>();
         for (Gif gif: gifList) {
             if (gif.getCategory().equals(categoryDao.findAll().get(0)) && !gifListInPainted.contains(gif))
                 gifListInPainted.add(gif);
@@ -48,6 +53,8 @@ public class GifDaoImpl implements GifDao {
                 gifListInRealistic.add(gif);
             if (gif.getCategory().equals(categoryDao.findAll().get(2)) && !gifListInAmazing.contains(gif))
                 gifListInAmazing.add(gif);
+            if (gif.getCategory().equals(categoryDao.findAll().get(3)) && !gifListInAmazing.contains(gif))
+                gifListInComputers.add(gif);
         }
         if (id.equals(1L)) {
             return gifListInPainted;
@@ -55,6 +62,8 @@ public class GifDaoImpl implements GifDao {
             return gifListInRealistic;
         } else if (id.equals(3L)) {
             return gifListInAmazing;
+        }else if (id.equals(4L)) {
+            return gifListInComputers;
         } else
             return gifList;
     }
